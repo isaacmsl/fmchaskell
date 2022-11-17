@@ -32,3 +32,7 @@ pd (S n) = n
 plus :: Nat -> Nat -> Nat
 plus n O = n
 plus n (S m) = S (plus n m)
+
+fact :: Nat -> Nat
+fact (S (S n)) = plus (fact n) (fact (S n))
+fact n = n
