@@ -28,3 +28,7 @@ double (S n) = S (S (double n))
 pd :: Nat -> Nat
 pd O = O
 pd (S n) = n
+
+plus :: Nat -> Nat -> Nat
+plus n O = n
+plus n (S m) = S (plus n m)
