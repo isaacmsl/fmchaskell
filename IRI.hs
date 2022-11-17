@@ -36,3 +36,7 @@ plus n (S m) = S (plus n m)
 fib :: Nat -> Nat
 fib (S (S n)) = plus (fib n) (fib (S n))
 fib n = n
+
+mult :: Nat -> Nat -> Nat
+mult _ O = O
+mult n (S m) = plus n (mult n m)
