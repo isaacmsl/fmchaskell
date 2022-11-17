@@ -40,3 +40,7 @@ fib n = n
 mult :: Nat -> Nat -> Nat
 mult _ O = O
 mult n (S m) = plus n (mult n m)
+
+toNat :: Int -> Nat
+toNat 0 = O
+toNat x = S (toNat (x - 1))
