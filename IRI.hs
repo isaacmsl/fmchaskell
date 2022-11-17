@@ -24,3 +24,7 @@ len (x : xs) = S (len xs)
 double :: Nat -> Nat
 double O = O
 double (S n) = S (S (double n))
+
+pd :: Nat -> Nat
+pd O = O
+pd (S n) = n
