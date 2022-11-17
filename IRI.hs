@@ -5,10 +5,10 @@ module IRI where
 data Nat where
     O :: Nat
     S :: Nat -> Nat
-  deriving (Eq, Show) 
+  deriving (Eq, Show Int)
 
 data Unit where
-    Star :: Unit
+  Star :: Unit
 
 data Empty
 
@@ -44,3 +44,7 @@ mult n (S m) = plus n (mult n m)
 toNat :: Int -> Nat
 toNat 0 = O
 toNat x = S (toNat (x - 1))
+
+fact :: Nat -> Nat
+fact (S (S n)) = mult (S (S n)) (fact (S n))
+fact n = n
