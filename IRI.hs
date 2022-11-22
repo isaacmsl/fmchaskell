@@ -43,6 +43,10 @@ mult :: Nat -> Nat -> Nat
 mult _ O = O
 mult n (S m) = plus n (mult n m)
 
+pow :: Nat -> Nat -> Nat
+pow _ O = S O
+pow n (S m) = mult n (pow n m)
+
 toNat :: Int -> Nat
 toNat 0 = O
 toNat x = S (toNat (x - 1))
