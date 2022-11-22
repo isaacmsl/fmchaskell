@@ -35,10 +35,6 @@ plus :: Nat -> Nat -> Nat
 plus n O = n
 plus n (S m) = S (plus n m)
 
-fib :: Nat -> Nat
-fib (S (S n)) = plus (fib n) (fib (S n))
-fib n = n
-
 mult :: Nat -> Nat -> Nat
 mult _ O = O
 mult n (S m) = plus n (mult n m)
@@ -46,6 +42,18 @@ mult n (S m) = plus n (mult n m)
 pow :: Nat -> Nat -> Nat
 pow _ O = S O
 pow n (S m) = mult n (pow n m)
+
+ppow :: Nat -> Nat -> Nat
+ppow _ O = S O
+ppow n (S m) = pow n (ppow n m)
+
+gig :: Nat -> Nat -> Nat
+gig _ O = S O
+gig n (S m) = ppow n (gig n m)
+
+fib :: Nat -> Nat
+fib (S (S n)) = plus (fib n) (fib (S n))
+fib n = n
 
 toNat :: Int -> Nat
 toNat 0 = O
