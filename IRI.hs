@@ -2,10 +2,12 @@
 
 module IRI where
 
+import Prelude hiding (zip, unzip)
+
 data Nat where
     O :: Nat
     S :: Nat -> Nat
-  deriving (Eq, Show Int)
+  deriving (Eq, Show)
 
 data Unit where
   Star :: Unit
@@ -48,3 +50,12 @@ toNat x = S (toNat (x - 1))
 fact :: Nat -> Nat
 fact (S (S n)) = mult (S (S n)) (fact (S n))
 fact n = n
+
+zip :: [a] -> [b] -> [(a, b)]
+zip _ [] = []
+zip [] _ = []
+zip (x : xs) (y : ys) = (x, y) : zip xs ys
+
+unzip :: [(a, b)] -> ([a], [b])
+unzip [] = ([], [])
+unzip ((x, y) : zs) = (x : fst (unzip zs), y : snd (unzip zs))
